@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact | Food-Delivery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="css/phone.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="bg.jpg" alt="Food-Delivery.com">
+        </div>
+        <ul>
+            <li class="item"><a href="index.html">Home</a></li>
+            <li class="item"><a href="our-services.html">Services</a></li>
+            <li class="item"><a href="menu.html">Menu</a></li>
+            <li class="item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+
+
+    <section id="contact">
+        <h1 class="h-primary center">Contact Us</h1>
+        <div id="contact-box">
+            <form action="" method="post" name="google-sheet">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="Name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" name="name" id="Email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number: </label>
+                    <input type="phone" name="name" id="Phone" placeholder="Enter your phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message: </label>
+                    <textarea name="message" id="Message" cols="30" rows="10"></textarea>
+                </div>
+        <center>
+        <input type="submit" value="Submit" class="btn" width=20px>
+        </center>
+            </form>
+            
+        </div>
+        
+    </section>
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyMfHwJOpHnu-98etJ8eWAXT8PVUcldR5IPzO6dgVpw53AWzx1M6nSAP5o3VmPtdgdQ/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+    <footer>
+        <div class="center">
+            Copyright &copy; www.Food-Delivery.com. All rights reserved!
+        </div>
+    </footer>
+</body>
+
+</html>
